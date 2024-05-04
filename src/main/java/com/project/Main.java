@@ -43,7 +43,7 @@ public class Main {
         for (int i = 0; i < players; i++) {
             System.out.println("Enter player name: ");
             String player = scanner.next();
-            gameController.insertPlayer(new Player(player));
+            gameController.insertPlayer(new Player(100+i,player));
         }
 
         Random random = new Random();

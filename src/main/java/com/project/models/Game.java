@@ -83,20 +83,21 @@ public class Game {
             return false;
         }
         player.updatePos(nextPos);
-        System.out.println("Player " + playerIndex + " has rolled " + diceVal + " and moved to " +nextPos);
+        System.out.println("Player " + player.getId() + " has rolled " + diceVal + " and moved to " +nextPos);
         Move move = new Move(nextPos,player);
         getMoves().push(move);
 
 
         if(nextPos==board.getSize()) {
-            System.out.println("Player " + playerIndex + " has won the game");
-            return true;
+            System.out.println("Player " + player.getId() + " has finished the game");
+            players.remove(playerIndex);
+            return players.size() == 1;
         }
         if(diceVal !=6) {
             nextPlayerIndex++;
         }
         else {
-            System.out.println("Player " + playerIndex + " roll again as val is 6");
+            System.out.println("Player " + player.getId() + " roll again as val is 6");
         }
         return false;
     }
